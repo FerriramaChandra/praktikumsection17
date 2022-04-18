@@ -14,10 +14,15 @@ describe('NameForm', () => {
         render(<NameForm/>);
         fireEvent.input(
             screen.getByRole('textbox', {name:/Nama Lengkap/}),
-            {target: {value:"Bumi Manusia"}}
+            {target: {value:"Ferri Rama Chandra"}}
         )
-        // expect(screen.getByText('Pendaftaran Peserta Coding Bootcamp')).toBeInTheDocument()
-        expect(screen.getByLabelText(/Nama Lengkap/)).toHaveValue("Bumi Manusia")
+        fireEvent.input(
+            screen.getByRole('textbox', {name:/Email/}),
+            {target: {value:"hehe@boi.com"}}
+        )
+
+        expect(screen.getByLabelText(/Nama Lengkap/)).toHaveValue("Ferri Rama Chandra")
+        expect(screen.getByLabelText(/Email/)).toHaveValue("hehe@boi.com")
     });
     test('input text for pengarang with number', () => {
 
